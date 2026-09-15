@@ -178,7 +178,7 @@ export default function Page() {
     <main className="min-h-dvh">
       <header className="bg-navy text-navy-foreground">
         <div className="mx-auto max-w-3xl px-5 py-6">
-          <h1 className="text-2xl font-bold tracking-tight text-balance">REV1 Cash &amp; Liquidation System</h1>
+          <h1 className="text-2xl font-bold tracking-tight text-balance">Cash &amp; Liquidation System</h1>
           <p className="mt-1 text-sm text-navy-muted">Separate uploads · Repeated uploads · PDF extraction</p>
         </div>
       </header>
