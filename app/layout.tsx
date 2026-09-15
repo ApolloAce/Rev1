@@ -40,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`bg-page ${geist.className}`}>
+    <html lang="en" className={`light bg-page ${geist.className}`}>
       <body className="antialiased bg-page">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

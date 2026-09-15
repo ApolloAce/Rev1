@@ -1,7 +1,9 @@
 'use client'
 
 import { useMemo, useState } from 'react'
+import { CategoryBreakdown } from '@/components/category-breakdown'
 import { DocList } from '@/components/doc-list'
+import { ExpensesTable } from '@/components/expenses-table'
 import { ProjectsTable } from '@/components/projects-table'
 import { SummaryCards } from '@/components/summary-cards'
 import { UploadZone } from '@/components/upload-zone'
@@ -61,6 +63,8 @@ export default function Page() {
           amount: 0,
           rawText: '',
           needsReview: true,
+          expenses: [],
+          categories: [],
         })
         reviewCount++
       }
@@ -216,6 +220,26 @@ export default function Page() {
             )}
           </div>
           <ProjectsTable rows={projectRows} />
+        </section>
+
+        <section className="rounded-xl border border-border bg-card p-5 shadow-sm sm:p-6">
+          <div className="mb-4 flex items-baseline justify-between gap-4">
+            <h2 className="text-xl font-bold text-card-foreground">Category Breakdown</h2>
+            {liqDocs.length > 0 && (
+              <span className="text-sm text-muted-foreground">Per liquidation file</span>
+            )}
+          </div>
+          <CategoryBreakdown docs={liqDocs} />
+        </section>
+
+        <section className="rounded-xl border border-border bg-card p-5 shadow-sm sm:p-6">
+          <div className="mb-4 flex items-baseline justify-between gap-4">
+            <h2 className="text-xl font-bold text-card-foreground">Liquidation Expenses</h2>
+            {liqTotal > 0 && (
+              <span className="text-sm text-muted-foreground">Total: {formatPeso(liqTotal)}</span>
+            )}
+          </div>
+          <ExpensesTable docs={liqDocs} />
         </section>
       </div>
     </main>
